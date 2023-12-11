@@ -9,64 +9,67 @@
 //Constructors, destructor
 Vehicle::Vehicle() //default constructor
 {
-    brand = new char[0];
-    model = new char[0];
+    brand = "Unknown";
+    model = "Unknown";
     year = 0;
     power = 0;
     mileage = 0;
-    status = new char[0];
+    registration = false;
+    status = "Unknown";
 }
 
-Vehicle::Vehicle(char *brand, char *model, int year, int power, int mileage, char *status)
+Vehicle::Vehicle(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
 {
-    this->brand = new char[std::strlen(brand)];
-    std::strcpy(this->brand, brand);
-    this->model = new char[std::strlen(model)];
-    std::strcpy(this->model, model);
+    this->brand = brand;
+    this->model = model;
     this->year = year;
     this->power = power;
     this->mileage = mileage;
-    this->status = new char[std::strlen(status)];
-    std::strcpy(this->status, status);
+    this->registration = registration;
+    this->status = status;
 }
 
 Vehicle::Vehicle(Vehicle const &other) //copy constructor
 {
-    brand = new char[std::strlen(other.brand)];
-    std::strcpy(brand, other.brand);
+    brand = other.brand;
     model = other.model;
-    model = new char[std::strlen(other.model)];
-    std::strcpy(model, other.model);
+    model = other.model;
     year = other.year;
     power = other.power;
     mileage = other.mileage;
+    registration = other.registration;
     status = other.status;
-    status = new char[std::strlen(other.status)];
-    std::strcpy(status, other.status);
 }
 
-Vehicle::~Vehicle() //destructor
+Vehicle& Vehicle::operator=(const Vehicle &other) //operator of appropriation
 {
-    delete[] brand;
-    delete[] model;
-    delete[] status;
-}
-
-Vehicle& Vehicle::operator=(const Vehicle &other)
-{
-    delete[] this->brand;
-    delete[] this->model;
-    delete[] this->status;
-
-    this->brand = new char[std::strlen(other.brand)];
-    std::strcpy(brand, other.brand);
-    this->model = new char[std::strlen(other.model)];
-    std::strcpy(model, other.model);
+    this->brand = other.brand;
+    this->model = other.model;
     this->year = other.year;
     this->power = other.power;
     this->mileage = other.mileage;
-    this->status = new char[std::strlen(other.status)];
-    std::strcpy(status, other.status);
-
+    this->registration = other.registration;
+    this->status = other.status;
     return *this;
+}
+
+
+//Output
+std::ostream & operator<<(std::ostream &out, const Vehicle &v)
+{
+    if (!v.get_brand())
+        out << "Unknown vehicle";
+    else {
+        out << "Brand: " << v.get_brand() << std::endl;
+        out << "Model: " << v.get_model() << std::endl;
+        out << "Year of manufacture: " << v.get_year() << std::endl;
+        out << "Power of the engine: " << v.get_power() << std::endl;
+        out << "Mileage of vehcle: " << v.get_mileage() << std::endl;
+        if (v.get_registration())
+            out << "Vehicle is registered" << std::endl;
+        else
+            out << "Vehicle is NOT registered" << std::endl;
+        out << "Status: " << v.get_status() << std::endl;
+    }
+    return out;
 }

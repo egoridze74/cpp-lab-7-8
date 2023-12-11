@@ -10,31 +10,35 @@
 
 class Vehicle {
 private:
-    char *brand;
-    char *model;
+    std::string brand;
+    std::string model;
     int year;
     int power;
     int mileage;
-    char *status; //status of registration
+    bool registration;
+    std::string status; //status
+    static int rent_price;
 public:
 
     //Constructors, destructor
     Vehicle(); //default constructor
 
-    Vehicle(char *brand, char *model, int year, int power, int mileage, char *status);
+    Vehicle(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status);
 
     Vehicle(const Vehicle &); //copy constructor
 
-    ~Vehicle(); //destructor
+    ~Vehicle() //destructor
+    {};
 
-    Vehicle& operator=(const Vehicle &other);
+    Vehicle& operator=(const Vehicle &other); //operator of appropriation
+
 
     //Getters
-    inline char* get_brand() const {
+    inline std::string get_brand() const {
         return brand;
     }
 
-    inline char* get_model() const {
+    inline std::string get_model() const {
         return model;
     }
 
@@ -50,55 +54,65 @@ public:
         return mileage;
     }
 
-    inline char* get_status() const {
+    inline bool get_registration() const {
+        return registration;
+    }
+
+    inline std::string get_status() const {
         return status;
     }
 
 
     //Setters
-    void set_brand(char* brand)
+    inline void set_brand(std::string brand)
     {
-        delete[] brand;
-        this->brand = new char[strlen(brand)];
-        strcpy(this->brand, brand);
+        this->brand = brand;
     }
 
-    void set_model(char* model)
+    inline void set_model(std::string model)
     {
-        delete[] model;
-        this->model = new char[strlen(model)];
-        strcpy(this->model, model);
+        this->model = model;
     }
 
-    void set_year(int year) {
+    inline void set_year(int year) {
         this->year = year;
     }
 
-    void set_power(int power) {
+    inline void set_power(int power) {
         this->power = power;
     }
 
-    void set_mileage(int mileage) {
+    inline void set_mileage(int mileage) {
         this->mileage = mileage;
     }
 
-    void set_status(char* status)
-    {
-        delete[] brand;
-        this->brand = new char[strlen(brand)];
-        strcpy(this->brand, brand);
+    inline void set_registration(bool registration) {
+        this->registration = registration;
     }
 
-    void set_all(char *brand, char *model, int year, int power, int mileage, char *status)
+    inline void set_status(std::string status)
+    {
+        this->brand = brand;
+    }
+
+    void set_all(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
     {
         this->set_brand(brand);
         this->set_model(model);
         this->set_year(year);
         this->set_power(power);
         this->set_mileage(mileage);
+        this->set_registration(registration);
         this->set_status(status);
     }
+
+protected:
+    //Rent
+    virtual double get_rent_price();
+    virtual void to_rent(const Customer &cust);
 };
 
+//Output
+std::ostream & operator<<(std::ostream &o, const Vehicle &v);
 
 #endif //Vehicle_h
