@@ -9,4 +9,8 @@ add_executable(cpp_lab_7_8 main.cpp
         Car.h
         Car.cpp
         Customer.h
-        Customer.cpp)
+        Customer.cpp
+        Truck.h
+        Truck.cpp
+        Motorcycle.h
+        Motorcycle.cpp)

@@ -2,9 +2,9 @@
 // Created by Egor on 12.12.2023.
 //
 
-#include "Car.h"
+#include "Truck.h"
 #include "Customer.h"
-Car::Car(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
+Truck::Truck(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
 {
     this->brand = brand;
     this->model = model;
@@ -15,7 +15,7 @@ Car::Car(std::string brand, std::string model, int year, int power, int mileage,
     this->status = status;
 }
 
-Car::Car(Car const &other) //copy constructor
+Truck::Truck(Truck const &other) //copy constructor
 {
     brand = other.brand;
     model = other.model;
@@ -27,7 +27,7 @@ Car::Car(Car const &other) //copy constructor
     status = other.status;
 }
 
-Car& Car::operator=(const Car &other) //operator of appropriation
+Truck& Truck::operator=(const Truck &other) //operator of appropriation
 {
     this->brand = other.brand;
     this->model = other.model;
@@ -41,29 +41,29 @@ Car& Car::operator=(const Car &other) //operator of appropriation
 
 
 //Renting
-double Car::get_rent_price()
+double Truck::get_rent_price()
 {
     double price = this->rent_price;
     if (this->get_power() > 100)
-        return price * 1.3;
+        return price * 1.35;
     else if (this->get_power() < 100)
-        return price * 0.9;
+        return price * 0.8;
     else
-        return price * 1.1;
+        return price * 1;
 
 }
 
-void Car::to_rent(Customer &cust)
+void Truck::to_rent(Customer &cust)
 {
     if (this->get_registration())
     {
         cust.set_bill(cust.get_bill() + this->get_rent_price());
-        std::string car = this->get_brand() + " " + this->get_model();
-        cust.set_vehicle(car);
+        std::string truck = this->get_brand() + " " + this->get_model();
+        cust.set_vehicle(truck);
         this->set_status("Rented");
-        std::cout << cust.get_name() << " rented Car \"" << car <<
-        "\" for " << this->get_rent_price() << "." << std::endl;
+        std::cout << cust.get_name() << " rented Truck \"" << truck <<
+                  "\" for " << this->get_rent_price() << "." << std::endl;
     }
     else
-        std::cout << "Car can't be rented because it it doesn't have registration." << std::endl;
+        std::cout << "Truck can't be rented because it it doesn't have registration." << std::endl;
 }

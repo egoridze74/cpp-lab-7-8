@@ -13,8 +13,23 @@ private:
     static const int rent_price = 2000;
 
 public:
-    double get_rent_price();
-    void to_rent(Customer &cust);
+
+    //Constructors, destructor
+    Car(); //default constructor
+
+    Car(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status);
+
+    Car(const Car &); //copy constructor
+
+    ~Car() //destructor
+    {};
+
+    Car& operator=(const Car &other); //operator of appropriation
+
+
+    //Renting
+    double get_rent_price() override;
+    void to_rent(Customer &cust) override;
 };
 
 

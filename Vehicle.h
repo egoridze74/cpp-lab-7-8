@@ -6,10 +6,11 @@
 #define Vehicle_h
 #include <iostream>
 #include <cstring>
+#include "Customer.h"
 
 
 class Vehicle {
-private:
+protected:
     std::string brand;
     std::string model;
     int year;
@@ -18,20 +19,13 @@ private:
     bool registration;
     std::string status; //status
     static int rent_price;
+
 public:
 
     //Constructors, destructor
     Vehicle(); //default constructor
 
-    Vehicle(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status);
-
-    Vehicle(const Vehicle &); //copy constructor
-
-    ~Vehicle() //destructor
-    {};
-
     Vehicle& operator=(const Vehicle &other); //operator of appropriation
-
 
     //Getters
     inline std::string get_brand() const {
@@ -106,7 +100,6 @@ public:
         this->set_status(status);
     }
 
-protected:
     //Rent
     virtual double get_rent_price();
     virtual void to_rent(const Customer &cust);

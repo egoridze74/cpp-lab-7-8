@@ -7,12 +7,12 @@
 Customer::Customer() //default constructor
 {
     name = "Unknown";
-    vehicle = Vehicle();
+    vehicle = "No car";
     bill = 0;
 
 }
 
-Customer::Customer(std::string name, Vehicle vehicle, double bill)
+Customer::Customer(std::string name, std::string vehicle, double bill)
 {
     this->name = name;
     this->vehicle = vehicle;

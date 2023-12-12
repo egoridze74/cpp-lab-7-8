@@ -5,20 +5,19 @@
 #ifndef CPP_LAB_7_8_CUSTOMER_H
 #define CPP_LAB_7_8_CUSTOMER_H
 #include <iostream>
-#include "Vehicle.h"
 
 class Customer
 {
 private:
     std::string name;
-    Vehicle vehicle;
+    std::string vehicle;
     double bill;
 public:
 
     //Constructors, destructor
     Customer(); //default constructor
 
-    Customer(std::string name, Vehicle vehicle, double bill);
+    Customer(std::string name, std::string vehicle, double bill);
 
     Customer(const Customer &); //copy constuctor
 
@@ -32,7 +31,7 @@ public:
         return name;
     }
 
-    inline Vehicle get_vehicle() {
+    inline std::string get_vehicle() {
         return vehicle;
     }
 
@@ -45,7 +44,7 @@ public:
         this->name = name;
     }
 
-    inline void set_vehicle(Vehicle &vehicle) {
+    inline void set_vehicle(std::string vehicle) {
         this->vehicle = vehicle;
     }
 

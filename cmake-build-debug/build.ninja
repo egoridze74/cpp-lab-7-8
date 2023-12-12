@@ -73,6 +73,18 @@ build CMakeFiles/cpp_lab_7_8.dir/Customer.cpp.obj: CXX_COMPILER__cpp_lab_7_8_uns
   OBJECT_DIR = CMakeFiles\cpp_lab_7_8.dir
   OBJECT_FILE_DIR = CMakeFiles\cpp_lab_7_8.dir
 
+build CMakeFiles/cpp_lab_7_8.dir/Truck.cpp.obj: CXX_COMPILER__cpp_lab_7_8_unscanned_Debug C$:/Users/Egor/Desktop/Ó÷¸áà/ßÏû/cpp-lab-7-8/Truck.cpp || cmake_object_order_depends_target_cpp_lab_7_8
+  DEP_FILE = CMakeFiles\cpp_lab_7_8.dir\Truck.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cpp_lab_7_8.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpp_lab_7_8.dir
+
+build CMakeFiles/cpp_lab_7_8.dir/Motorcycle.cpp.obj: CXX_COMPILER__cpp_lab_7_8_unscanned_Debug C$:/Users/Egor/Desktop/Ó÷¸áà/ßÏû/cpp-lab-7-8/Motorcycle.cpp || cmake_object_order_depends_target_cpp_lab_7_8
+  DEP_FILE = CMakeFiles\cpp_lab_7_8.dir\Motorcycle.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\cpp_lab_7_8.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpp_lab_7_8.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpp_lab_7_8
@@ -81,7 +93,7 @@ build CMakeFiles/cpp_lab_7_8.dir/Customer.cpp.obj: CXX_COMPILER__cpp_lab_7_8_uns
 #############################################
 # Link the executable cpp_lab_7_8.exe
 
-build cpp_lab_7_8.exe: CXX_EXECUTABLE_LINKER__cpp_lab_7_8_Debug CMakeFiles/cpp_lab_7_8.dir/main.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Vehicle.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Car.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Customer.cpp.obj
+build cpp_lab_7_8.exe: CXX_EXECUTABLE_LINKER__cpp_lab_7_8_Debug CMakeFiles/cpp_lab_7_8.dir/main.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Vehicle.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Car.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Customer.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Truck.cpp.obj CMakeFiles/cpp_lab_7_8.dir/Motorcycle.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\cpp_lab_7_8.dir

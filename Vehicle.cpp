@@ -15,30 +15,7 @@ Vehicle::Vehicle() //default constructor
     power = 0;
     mileage = 0;
     registration = false;
-    status = "Unknown";
-}
-
-Vehicle::Vehicle(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
-{
-    this->brand = brand;
-    this->model = model;
-    this->year = year;
-    this->power = power;
-    this->mileage = mileage;
-    this->registration = registration;
-    this->status = status;
-}
-
-Vehicle::Vehicle(Vehicle const &other) //copy constructor
-{
-    brand = other.brand;
-    model = other.model;
-    model = other.model;
-    year = other.year;
-    power = other.power;
-    mileage = other.mileage;
-    registration = other.registration;
-    status = other.status;
+    status = "Not rented";
 }
 
 Vehicle& Vehicle::operator=(const Vehicle &other) //operator of appropriation
@@ -57,7 +34,7 @@ Vehicle& Vehicle::operator=(const Vehicle &other) //operator of appropriation
 //Output
 std::ostream & operator<<(std::ostream &out, const Vehicle &v)
 {
-    if (!v.get_brand())
+    if (v.get_brand() == "Unknown")
         out << "Unknown vehicle";
     else {
         out << "Brand: " << v.get_brand() << std::endl;
