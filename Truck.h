@@ -10,13 +10,13 @@
 class Truck : public Vehicle
 {
 private:
-    static const int rent_price = 2500;
+    static const unsigned int rent_price = 2500;
 
 public:
     //Constructors, destructor
     Truck(); //default constructor
 
-    Truck(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status);
+    Truck(std::string brand, std::string model, unsigned int year, unsigned int power, unsigned int mileage, std::string registration, std::string status);
 
     Truck(const Truck &); //copy constructor
 
@@ -25,7 +25,7 @@ public:
 
     Truck& operator=(const Truck &other); //operator of appropriation
     //Renting
-    double get_rent_price();
+    double get_rent_price() const;
     void to_rent(Customer &cust);
 };
 #endif //CPP_LAB_7_8_TRUCK_H

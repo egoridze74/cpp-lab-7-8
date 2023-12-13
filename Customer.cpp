@@ -31,4 +31,30 @@ Customer& Customer::operator=(const Customer &other) //operator of appropriation
     this->name = other.name;
     this->vehicle = other.vehicle;
     this->bill = other.bill;
+    return *this;
+}
+
+
+//Input, output
+std::istream& operator>>(std::istream &in, Customer &c)
+{
+    std::string name;
+    double bill;
+    in >> name >> bill;
+    c.set_name(name);
+    c.set_bill(bill);
+    return in;
+}
+
+std::ostream & operator<<(std::ostream &out, const Customer &c)
+{
+    if (c.get_name() == "Unknown")
+        out << "Unknown customer" << std::endl;
+    else
+    {
+        out << "Customer's name: " << c.get_name() << std::endl;
+        out << "Customer's vehicle: " << c.get_vehicle() << std::endl;
+        out << "Customer's bill: " << c.get_bill() << std::endl;
+    }
+    return out;
 }

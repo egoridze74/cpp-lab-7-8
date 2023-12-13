@@ -13,12 +13,19 @@ private:
     static const int rent_price = 1500;
 
 public:
+//Constructors, destructor
+    Motorcycle(); //default constructor
 
-    //Constructors
+    Motorcycle(std::string brand, std::string model, unsigned int year, unsigned int power, unsigned int mileage, std::string registration, std::string status);
 
+    Motorcycle(const Motorcycle &); //copy constructor
 
+    ~Motorcycle() //destructor
+    {};
+
+    Motorcycle& operator=(const Motorcycle &other); //operator of appropriation
     //Renting
-    double get_rent_price();
+    double get_rent_price() const;
     void to_rent(Customer &cust);
 };
 

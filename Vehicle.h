@@ -13,12 +13,12 @@ class Vehicle {
 protected:
     std::string brand;
     std::string model;
-    int year;
-    int power;
-    int mileage;
-    bool registration;
+    unsigned int year;
+    unsigned int power;
+    unsigned int mileage;
+    std::string registration;
     std::string status; //status
-    static int rent_price;
+    static unsigned int rent_price;
 
 public:
 
@@ -36,19 +36,19 @@ public:
         return model;
     }
 
-    inline int get_year() const {
+    inline unsigned int get_year() const {
         return year;
     }
 
-    inline int get_power() const {
+    inline unsigned int get_power() const {
         return power;
     }
 
-    inline int get_mileage() const {
+    inline unsigned int get_mileage() const {
         return mileage;
     }
 
-    inline bool get_registration() const {
+    inline std::string get_registration() const {
         return registration;
     }
 
@@ -68,28 +68,28 @@ public:
         this->model = model;
     }
 
-    inline void set_year(int year) {
+    inline void set_year(unsigned int year) {
         this->year = year;
     }
 
-    inline void set_power(int power) {
+    inline void set_power(unsigned int power) {
         this->power = power;
     }
 
-    inline void set_mileage(int mileage) {
+    inline void set_mileage(unsigned int mileage) {
         this->mileage = mileage;
     }
 
-    inline void set_registration(bool registration) {
+    inline void set_registration(std::string registration) {
         this->registration = registration;
     }
 
     inline void set_status(std::string status)
     {
-        this->brand = brand;
+        this->status = status;
     }
 
-    void set_all(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
+    void set_all(std::string brand, std::string model, unsigned int year, unsigned int power, unsigned int mileage, std::string registration, std::string status)
     {
         this->set_brand(brand);
         this->set_model(model);
@@ -101,11 +101,12 @@ public:
     }
 
     //Rent
-    virtual double get_rent_price();
-    virtual void to_rent(const Customer &cust);
+    virtual double get_rent_price() const {};
+    virtual void to_rent(const Customer &cust) {};
 };
 
-//Output
+//Input, output
+std::istream& operator>>(std::istream &in, Vehicle &v);
 std::ostream & operator<<(std::ostream &o, const Vehicle &v);
 
 #endif //Vehicle_h

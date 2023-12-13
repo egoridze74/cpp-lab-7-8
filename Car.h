@@ -10,14 +10,14 @@
 class Car : public Vehicle
 {
 private:
-    static const int rent_price = 2000;
+    static const unsigned int rent_price = 2000;
 
 public:
 
     //Constructors, destructor
     Car(); //default constructor
 
-    Car(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status);
+    Car(std::string brand, std::string model, unsigned int year, unsigned int power, unsigned int mileage, std::string registration, std::string status);
 
     Car(const Car &); //copy constructor
 
@@ -28,8 +28,8 @@ public:
 
 
     //Renting
-    double get_rent_price() override;
-    void to_rent(Customer &cust) override;
+    double get_rent_price() const;
+    void to_rent(Customer &cust);
 };
 
 

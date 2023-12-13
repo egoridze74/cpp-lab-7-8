@@ -4,7 +4,18 @@
 
 #include "Car.h"
 #include "Customer.h"
-Car::Car(std::string brand, std::string model, int year, int power, int mileage, bool registration, std::string status)
+Car::Car() //default constructor
+{
+    brand = "Unknown";
+    model = "Unknown";
+    year = 0;
+    power = 0;
+    mileage = 0;
+    registration = false;
+    status = "NotRented";
+}
+
+Car::Car(std::string brand, std::string model, unsigned int year, unsigned int power, unsigned int mileage, std::string registration, std::string status)
 {
     this->brand = brand;
     this->model = model;
@@ -41,7 +52,7 @@ Car& Car::operator=(const Car &other) //operator of appropriation
 
 
 //Renting
-double Car::get_rent_price()
+double Car::get_rent_price() const
 {
     double price = this->rent_price;
     if (this->get_power() > 100)
@@ -55,15 +66,15 @@ double Car::get_rent_price()
 
 void Car::to_rent(Customer &cust)
 {
-    if (this->get_registration())
+    if (this->get_registration() == "true" && this->get_status() != "Rented")
     {
         cust.set_bill(cust.get_bill() + this->get_rent_price());
         std::string car = this->get_brand() + " " + this->get_model();
         cust.set_vehicle(car);
         this->set_status("Rented");
         std::cout << cust.get_name() << " rented Car \"" << car <<
-        "\" for " << this->get_rent_price() << "." << std::endl;
+        "\" for " << this->get_rent_price() << " per day." << std::endl;
     }
     else
-        std::cout << "Car can't be rented because it it doesn't have registration." << std::endl;
+        std::cout << "Car can't be rented." << std::endl;
 }

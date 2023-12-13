@@ -13,4 +13,6 @@ add_executable(cpp_lab_7_8 main.cpp
         Truck.h
         Truck.cpp
         Motorcycle.h
-        Motorcycle.cpp)
+        Motorcycle.cpp
+        MaintenanceRecord.h
+        MaintenanceRecord.cpp)

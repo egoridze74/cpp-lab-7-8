@@ -1,0 +1,4 @@
+Customer's name: Mr P
+Customer's vehicle: Toyota Supra
+Customer's bill: 5100
+
