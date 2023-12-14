@@ -25,7 +25,7 @@ int main()
             break;
         case 2:
         {
-            std::ifstream in("customer.txt");
+            std::ifstream in("..\\customer.txt");
             in >> cust;
             in.close();
             break;
@@ -83,7 +83,7 @@ int main()
         }
         case 2:
         {
-            std::ofstream out("bill.txt");
+            std::ofstream out("..\\bill.txt");
             out << cust << std::endl;
             out.close();
             break;
@@ -91,13 +91,13 @@ int main()
         default:
         {
             std::cout << cust;
-            std::ofstream out("bill.txt");
+            std::ofstream out("..\\bill.txt");
             out << cust << std::endl;
             out.close();
         }
     }
     std::cout << "We will also print a list of our vehicles in the file \"vehicle.txt\"." << std::endl;
-    std::ofstream out("vehicles.txt");
+    std::ofstream out("..\\vehicles.txt");
     out << car << std::endl << truck << std::endl << moto << std::endl;
     out.close();
     std::cout << "Thank you for this work! Bye-bye!" << std::endl;
