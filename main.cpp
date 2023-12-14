@@ -37,18 +37,19 @@ int main()
     std::cout << cust << std::endl;
 
     std::cout << "Let's add some vehicles!" << std::endl;
-    std::cout << "Insert car:" << std::endl; //Toyota Supra 1997 287 100000 true NotRented
     Car car = Car();
+    Truck truck = Truck();
+    Motorcycle moto = Motorcycle();
+
+    std::cout << "Insert car:" << std::endl; //Toyota Supra 1997 287 100000 true NotRented
     std::cin >> car;
     std::cout << car << std::endl;
 
     std::cout << "Insert truck:" << std::endl; //GAZ 3322 2003 95 165500 false NotRented
-    Truck truck = Truck();
     std::cin >> truck;
     std::cout << truck << std::endl;
 
     std::cout << "Insert motorcycle:" << std::endl; //Suzuki Bandit 1980 100 29000 true Rented
-    Motorcycle moto = Motorcycle();
     std::cin >> moto;
     std::cout << moto << std::endl;
 
@@ -95,6 +96,10 @@ int main()
             out.close();
         }
     }
+    std::cout << "We will also print a list of our vehicles in the file \"vehicle.txt\"." << std::endl;
+    std::ofstream out("vehicles.txt");
+    out << car << std::endl << truck << std::endl << moto << std::endl;
+    out.close();
     std::cout << "Thank you for this work! Bye-bye!" << std::endl;
     return 0;
 }

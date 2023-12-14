@@ -7,7 +7,7 @@
 Customer::Customer() //default constructor
 {
     name = "Unknown";
-    vehicle = "No car";
+    vehicle = "NoCar";
     bill = 0;
 
 }
@@ -39,9 +39,11 @@ Customer& Customer::operator=(const Customer &other) //operator of appropriation
 std::istream& operator>>(std::istream &in, Customer &c)
 {
     std::string name;
+    std::string vehicle;
     double bill;
-    in >> name >> bill;
+    in >> name >> vehicle >> bill;
     c.set_name(name);
+    c.set_vehicle(vehicle);
     c.set_bill(bill);
     return in;
 }

@@ -14,8 +14,8 @@ Vehicle::Vehicle() //default constructor
     year = 0;
     power = 0;
     mileage = 0;
-    registration = false;
-    status = "Not rented";
+    registration = "false";
+    status = "NotRented";
 }
 
 Vehicle& Vehicle::operator=(const Vehicle &other) //operator of appropriation
@@ -57,7 +57,7 @@ std::ostream & operator<<(std::ostream &out, const Vehicle &v)
         else
             out << "Vehicle is NOT registered" << std::endl;
         out << "Status: " << v.get_status() << std::endl;
-        if (v.get_status() == "NotRented")
+        if (v.get_status() == "NotRented" && v.get_registration() == "true")
             out << "Rent price: " << v.get_rent_price() << std::endl;
     }
     return out;

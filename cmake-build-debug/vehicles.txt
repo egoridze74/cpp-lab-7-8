@@ -1,0 +1,25 @@
+Brand: Toyota
+Model: Supra
+Year of manufacture: 1997
+Power of the engine: 287
+Mileage of vehicle: 100000
+Vehicle is registered
+Status: Rented
+
+Brand: GAZ
+Model: 3322
+Year of manufacture: 2003
+Power of the engine: 95
+Mileage of vehicle: 165500
+Vehicle is NOT registered
+Status: NotRented
+Rent price: 2000
+
+Brand: Suzuki
+Model: Bandit
+Year of manufacture: 1980
+Power of the engine: 100
+Mileage of vehicle: 29000
+Vehicle is registered
+Status: Rented
+
